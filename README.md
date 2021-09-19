@@ -20,5 +20,5 @@ This repository contains a description of primary data, processed data, and code
 
 ### Identified TFs associate with distinct aspects of lipid metabolism
 
-### Dynamic behavior of the predicted networks during seed development**
+### Dynamic behavior of the predicted networks during seed development
 
