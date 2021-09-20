@@ -8,7 +8,7 @@ This repository contains a description of primary data, processed data, and code
 
 ## Main sections
 
-### Pre-procession of rawdata
+### Raw data pre-processing
 
 * Analysis of Seed expression data: RNA-seq 
 * Co-expression (MI) calcualations
