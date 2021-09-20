@@ -10,6 +10,10 @@ This repository contains a description of primary data, processed data, and code
 
 ### Pre-procession of rawdata
 
+* Analysis of Seed expression data: RNA-seq 
+* Co-expression (MI) calcualations
+* Identification of DNA-binding site (peaks)based on DAP-seq
+
 ### Expression analysis of genes involved in lipid accumulation during Camelina seed development
 
 ### Identification of candidate lipid transcriptional regulators by co-expression analysis
