@@ -10,12 +10,7 @@
 # 6. Genome source: http://camelinadb.ca
 
 
-
-########## Load Modules #########
-module purge
-module load Trimmomatic 
-########## Command Lines to Run #########   
-
+# NOTE: this script should stay on the same directory with raw fastq file 
 cd RawData/
 
 # Output directory for unmapped reads
