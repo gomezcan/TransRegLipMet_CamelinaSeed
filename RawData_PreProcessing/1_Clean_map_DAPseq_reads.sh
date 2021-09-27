@@ -13,11 +13,11 @@
 # NOTE: this script should stay on the same directory with raw fastq file 
 cd RawData/
 
-# Output directory for unmapped reads
-mkdir UnMapped
+# Output directory for unmapped reads at the sample level of RawDaa
+mkdir ../UnMapped
 
-# Output directory for unmapped reads
-mkdir Mapping
+# Output directory for unmapped reads at the sample level of RawDaa
+mkdir ../Mapping
 
 for i in *fastq.gz; do
 
@@ -37,16 +37,16 @@ for i in *fastq.gz; do
 	
 	# Mapping clean reads 
 	echo "Mapping $out to Camelina with default "
-	bowtie2 -p 10 --un UnMapped/Un.${name} --no-unal -x Index_Camelina_bowtie2 -U UnMapped/un.${i} -S Mapping/${out}.sam;
+	bowtie2 -p 10 --un ../UnMapped/Un.${name} --no-unal -x Index_Camelina_bowtie2 -U Clean.${i} -S ../Mapping/${out}.sam;
 	
 	# convert sam into bam and sort alignments 
-	samtools view -@ 10 -h -bS Mapping/${out}.sam | samtools sort -@ 10 - -o Mapping/${out}.bam;
+	samtools view -@ 10 -h -bS ../Mapping/${out}.sam | samtools sort -@ 10 - -o ../Mapping/${out}.bam;
 	
 	# remove low quality alignments
-	samtools view -@ 10 -h -b -q 30 Mapping/${out}.bam | samtools sort -@ 10 - -o Mapping/Q30.${out}.bam
+	samtools view -@ 10 -h -b -q 30 ../Mapping/${out}.bam | samtools sort -@ 10 - -o ../Mapping/Q30.${out}.bam
 	
 	# Label and remove duplicated aligned reads
-	picard MarkDuplicates I=Mapping/Q30.${out}.bam O=Mapping/DeDup.Q30.${out}.bam M=Metrics.Q30.${out}.txt REMOVE_DUPLICATES=true;
+	picard MarkDuplicates I=../Mapping/Q30.${out}.bam O=../Mapping/DeDup.Q30.${out}.bam M=Metrics.Q30.${out}.txt REMOVE_DUPLICATES=true;
 	
 	
 done;
